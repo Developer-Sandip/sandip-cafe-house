@@ -1,5 +1,5 @@
 // Change this to your WhatsApp number: country code + number, no + or spaces
-var WHATSAPP="916291434742";
+var WHATSAPP="6291434742";
 var CAFE_NAME="Sandip Cafe House";
 
 var MENU={
