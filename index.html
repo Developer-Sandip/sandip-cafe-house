@@ -12,7 +12,7 @@
 <div class="wrap">
   <header>
     <a class="logo" href="#top">Sandip Cafe House</a>
-    <nav><a href="#menu">Menu</a><a href="#visit">Visit</a></nav>
+    <nav><a href="#menu">Menu</a><a href="#book">Book</a><a href="#visit">Visit</a></nav>
   </header>
 
   <main id="top">
@@ -44,7 +44,29 @@
   </div>
 </div>
 
-<section id="visit">
+<section id="book">
+  <div class="wrap">
+    <h2>Book a table</h2>
+    <p class="lead">Fill in your details and send the request on WhatsApp. We will confirm your table shortly.</p>
+    <form id="bookForm" class="form" novalidate>
+      <label>Your name<input name="name" type="text" autocomplete="name" required></label>
+      <label>Phone number<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required></label>
+      <label>Date<input name="date" type="date" required></label>
+      <label>Time<input name="time" type="time" required></label>
+      <label>Guests
+        <select name="guests">
+          <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option>
+          <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+        </select>
+      </label>
+      <label class="full">Note (optional)<textarea name="note" rows="3" placeholder="Birthday, window seat, etc."></textarea></label>
+      <p class="msg" id="formMsg" role="status" aria-live="polite"></p>
+      <button class="btn" type="submit">Send booking request</button>
+    </form>
+  </div>
+</section>
+
+<section id="visit" class="band">
   <div class="wrap info">
     <div>
       <h2>Come say hello</h2>

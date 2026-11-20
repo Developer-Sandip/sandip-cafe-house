@@ -1,6 +1,6 @@
 :root{
   --bg:#FBFCF8; --surface:#EEF3EA; --ink:#123B35; --text:#3A2A22; --muted:#6B6F66;
-  --accent:#F0B429; --on-accent:#123B35; --line:#D6DFD2;
+  --accent:#F0B429; --on-accent:#123B35; --line:#D6DFD2; --err:#B3261E;
   --head:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
   --body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
   color-scheme:light;
@@ -11,12 +11,12 @@
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --bg:#0F2623; --surface:#16332F; --ink:#F3EFD8; --text:#E4E8DF; --muted:#A5B3A9;
-    --accent:#F0B429; --on-accent:#123B35; --line:#2A4A44; color-scheme:dark;
+    --accent:#F0B429; --on-accent:#123B35; --line:#2A4A44; --err:#FF9B8F; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#0F2623; --surface:#16332F; --ink:#F3EFD8; --text:#E4E8DF; --muted:#A5B3A9;
-  --accent:#F0B429; --on-accent:#123B35; --line:#2A4A44; color-scheme:dark;
+  --accent:#F0B429; --on-accent:#123B35; --line:#2A4A44; --err:#FF9B8F; color-scheme:dark;
 }
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
@@ -63,10 +63,20 @@ h2{font-size:clamp(30px,5vw,44px);font-weight:700;letter-spacing:-.02em;margin-b
 .hours td:last-child{text-align:right;font-weight:600}
 .info p{margin:0 0 10px}
 
+.form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;max-width:720px}
+.form label{display:flex;flex-direction:column;gap:6px;font-weight:600;color:var(--ink)}
+.form .full,.form .msg,.form .btn{grid-column:1/-1}
+.form input,.form select,.form textarea{font:400 17px var(--body);color:var(--text);background:var(--surface);
+  border:2px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--ink);outline:none}
+.form .btn{border:0;cursor:pointer;justify-self:start}
+.msg{margin:0;min-height:1.6em;font-weight:600;color:var(--ink)}
+.msg.err{color:var(--err)}
+
 footer{padding:30px 0 44px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
 
 @media (max-width:720px){
-  .hero,.info,.menu{grid-template-columns:1fr}
+  .hero,.info,.menu,.form{grid-template-columns:1fr}
   .hero{padding-top:12px}
   .art{max-width:240px;order:-1}
   nav{gap:14px;font-size:15px}
